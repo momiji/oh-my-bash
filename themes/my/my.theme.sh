@@ -34,9 +34,9 @@ __my_rvm_ruby_version() {
 }
 
 __my_venv_prompt() {
-  if [ ! -z "$VIRTUAL_ENV" ]
+  if [ ! -z "$PROMPT_ENVIRONMENT" ]
   then
-    echo "[${blue}@${normal}${VIRTUAL_ENV##*/}]"
+    echo "[${blue}@${normal}${PROMPT_ENVIRONMENT##*/}]"
   fi
 }
 
@@ -69,10 +69,10 @@ prompt() {
 
     # nice prompt
     case "`id -u`" in
-        0) PS1="${normal}${TITLEBAR}[$(clock_prompt)${normal}][$my_ps_root][$my_ps_host]$(modern_scm_prompt)$(__my_rvm_ruby_version)[${cyan}\w${normal}]$(is_vim_shell)
+        0) PS1="${normal}${TITLEBAR}[$(clock_prompt)${normal}][$my_ps_root][$my_ps_host]$(modern_scm_prompt)$(__my_venv_prompt)[${cyan}\w${normal}]$(is_vim_shell)
 ${my_ps_status}$ "
         ;;
-        *) PS1="${normal}${TITLEBAR}[$(clock_prompt)${normal}][$my_ps_user][$my_ps_host]$(modern_scm_prompt)$(__my_rvm_ruby_version)$(__my_venv_prompt)[${cyan}\w${normal}]$(is_vim_shell)
+        *) PS1="${normal}${TITLEBAR}[$(clock_prompt)${normal}][$my_ps_user][$my_ps_host]$(modern_scm_prompt)$(__my_venv_prompt)[${cyan}\w${normal}]$(is_vim_shell)
 ${my_ps_status}$ "
         ;;
     esac
