@@ -65,7 +65,7 @@ prompt() {
     local my_ps_root="\[\033[01;31m\]\u\[\033[00m\]";
     local my_ps_path="\[\033[01;36m\]\w\[\033[00m\]";
 
-    [ $my_ps_status -ne 0 ] && my_ps_status="${red}$my_ps_status${normal} " || my_ps_status=""
+    [ $my_ps_status -ne 0 ] && my_ps_status="\[\033[01;36m\]$my_ps_status\[\033[00m\] " || my_ps_status=""
 
     # nice prompt
     case "`id -u`" in
