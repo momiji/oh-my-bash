@@ -1,3 +1,9 @@
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/momiji/oh-my-bash/master/tools/install.sh)"
+```
+
+---
+
 Oh My Bash is an open source, community-driven framework for managing your [bash](https://www.gnu.org/software/bash/) configuration.
 
 Sounds boring. Let's try again.
