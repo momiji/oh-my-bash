@@ -72,19 +72,13 @@ main() {
     exit 1
   }
 
-  printf "${BLUE}Looking for an existing bash config...${NORMAL}\n"
-  if [ -f $HOME/.bashrc ] || [ -h $HOME/.bashrc ]; then
-    printf "${YELLOW}Found ~/.bashrc.${NORMAL} ${GREEN}Backing up to ~/.bashrc.pre-oh-my-bash${NORMAL}\n";
-    mv $HOME/.bashrc $HOME/.bashrc.pre-oh-my-bash;
-  fi
-
   printf "${BLUE}Using the Oh My Bash template file and adding it to ~/.bashrc${NORMAL}\n"
-  cp $OSH/templates/bashrc.osh-template $HOME/.bashrc
+  cp $OSH/templates/bashrc.osh-template $OSH/.bashrc
   sed "/^export OSH=/ c\\
 export OSH=$OSH
-  " $HOME/.bashrc > $HOME/.bashrc-ombtemp
-  mv -f $HOME/.bashrc-ombtemp $HOME/.bashrc
-
+  " $OSH/.bashrc > $OSH/.bashrc-ombtemp
+  mv -f $OSH/.bashrc-ombtemp $OSH/.bashrc
+  
   # MOTD message :)
   printf '%s' "$GREEN"
   printf '%s\n' '         __                          __               __  '
@@ -95,7 +89,7 @@ export OSH=$OSH
   printf '%s\n' '                        /____/                            .... is now installed!'
   printf "%s\n" "Please look over the ~/.bashrc file to select plugins, themes, and options"
   printf "${BLUE}${BOLD}%s${NORMAL}\n" "To keep up on the latest news and updates, follow us on GitHub: https://github.com/ohmybash/oh-my-bash"
-  exec bash; source $HOME/.bashrc
+  exec bash; source $OSH/.bashrc
 }
 
 
