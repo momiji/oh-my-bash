@@ -64,7 +64,7 @@ prompt() {
     [ $my_ps_status -ne 0 ] && my_ps_status="${_red} $my_ps_status " && my_ps_prompt="${bold_red}\$ " || my_ps_status=""
 
     # nice prompt
-    PS1="${normal}${TITLEBAR}$(clock_prompt)$my_ps_user$my_ps_host$(modern_scm_prompt)$(__my_venv_prompt)${my_ps_path}${is_vim_shell}${my_ps_status}\033[K\033[0m\n\033[?7711h${normal}${my_ps_prompt}${normal}"
+    PS1="${normal}${TITLEBAR}$(clock_prompt)$my_ps_user$my_ps_host$(modern_scm_prompt)$(__my_venv_prompt)${my_ps_path}${is_vim_shell}${my_ps_status}\033[K\033[0m\n\$ "
 }
 
 PS2="> "
