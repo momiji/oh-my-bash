@@ -38,7 +38,7 @@ __my_venv_prompt() {
 is_vim_shell() {
         if [ ! -z "$VIMRUNTIME" ]
         then
-                echo "[${_blue} vim shell ${normal}]"
+                echo "${_blue} vim shell "
         fi
 }
 
@@ -64,9 +64,10 @@ prompt() {
     [ $my_ps_status -ne 0 ] && my_ps_status="${_red} $my_ps_status " && my_ps_prompt="${bold_red}\$ " || my_ps_status=""
 
     # nice prompt
-    PS1="${normal}${TITLEBAR}$(clock_prompt)$my_ps_user$my_ps_host$(modern_scm_prompt)$(__my_venv_prompt)${my_ps_path}${normal}${is_vim_shell}${my_ps_status}${normal}\n${my_ps_prompt}${normal}"
+    PS1="${normal}${TITLEBAR}$(clock_prompt)$my_ps_user$my_ps_host$(modern_scm_prompt)$(__my_venv_prompt)${my_ps_path}${is_vim_shell}${my_ps_status}\033[K\n\033[?7711h${normal}${my_ps_prompt}${normal}"
 }
 
 PS2="> "
 
 safe_append_prompt_command prompt
+
