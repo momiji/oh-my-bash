@@ -36,7 +36,7 @@ __my_rvm_ruby_version() {
 __my_venv_prompt() {
   if [ ! -z "$PROMPT_ENVIRONMENT" ]
   then
-    echo "[${blue}@${normal}${PROMPT_ENVIRONMENT##*/}]"
+    echo "[${yellow}@${PROMPT_ENVIRONMENT}${normal}]"
   fi
 }
 
